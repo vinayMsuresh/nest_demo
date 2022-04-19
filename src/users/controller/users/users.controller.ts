@@ -1,4 +1,5 @@
 import {
+  Body,
   ClassSerializerInterceptor,
   Controller,
   Get,
@@ -6,10 +7,14 @@ import {
   HttpStatus,
   NotFoundException,
   Param,
+  Post,
   UseFilters,
   UseInterceptors,
+  UsePipes,
+  ValidationPipe,
 } from '@nestjs/common';
 import { slideUsers } from 'src/types/usertypes';
+import { CreateUserDto } from 'src/users/dtos/ceateUser.dto';
 import { UserNotFound } from 'src/users/exceptions/userNotFound.exception';
 import { HttpExceptionFilter } from 'src/users/filters/HttpExceptions.filter';
 import { UsersService } from 'src/users/service/users/users.service';
@@ -30,5 +35,11 @@ export class UsersController {
     const user = this.userService.getUserByUsername(username);
     if (user) return new slideUsers(user);
     else throw new UserNotFound('User not Found', HttpStatus.BAD_GATEWAY);
+  }
+
+  @Post('create')
+  @UsePipes(ValidationPipe)
+  saveUser(@Body() createUser: CreateUserDto){
+    return this.userService.createUser(createUser);
   }
 }
