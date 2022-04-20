@@ -9,7 +9,7 @@ import { encodePassword } from 'src/utils/bcrypt';
 @Injectable()
 export class UsersService {
   constructor(@InjectRepository(UserEntity)
-  private readonly userRepository: Repository<UserEntity>){}
+  private readonly userRepository: Repository<UserEntity>,){}
   private users: userTypes[] = [
     {
       username: 'sdsds',
@@ -32,5 +32,9 @@ export class UsersService {
     const password = encodePassword(createUser.password);
     const newUser = this.userRepository.create({...createUser,password});
     return this.userRepository.save(newUser);
+  }
+
+  findUserByUsername(username: string){
+    return this.userRepository.findOne({where:{username}})
   }
 }
