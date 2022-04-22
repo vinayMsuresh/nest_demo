@@ -7,6 +7,7 @@ import { UsersService } from './users/service/users/users.service';
 import { UsersModule } from './users/users.module';
 import {TypeOrmModule} from '@nestjs/typeorm';
 import { AuthModule } from './auth/auth.module';
+import { PaymentsModule } from './payments/payments.module';
 import entities from './typeOrm';
 
 @Module({
@@ -22,7 +23,7 @@ import entities from './typeOrm';
       database: 'db1',
       entities,
       synchronize: true,
-  }), AuthModule],
+  }), AuthModule, PaymentsModule],
   controllers: [AppController],
   providers: [AppService],
 })
