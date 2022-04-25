@@ -12,8 +12,8 @@ import {
   ValidationPipe,
 } from '@nestjs/common';
 import { Response } from 'express';
-import { customerDto } from 'src/customers/dtos/customer.dto';
-import { CustomersService } from 'src/customers/service/customers/customers.service';
+import { customerDto } from '../../dtos/customer.dto';
+import { CustomersService } from '../../service/customers/customers.service';
 @Controller('customers')
 export class CustomersController {
   constructor(private customerService: CustomersService) {}

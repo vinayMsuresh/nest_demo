@@ -13,11 +13,11 @@ import {
   UsePipes,
   ValidationPipe,
 } from '@nestjs/common';
-import { slideUsers } from 'src/types/usertypes';
-import { CreateUserDto } from 'src/users/dtos/ceateUser.dto';
-import { UserNotFound } from 'src/users/exceptions/userNotFound.exception';
-import { HttpExceptionFilter } from 'src/users/filters/HttpExceptions.filter';
-import { UsersService } from 'src/users/service/users/users.service';
+import { slideUsers } from '../../../types/usertypes'; 
+import { CreateUserDto } from '../../dtos/ceateUser.dto';
+import { UserNotFound } from '../../exceptions/userNotFound.exception';
+import { HttpExceptionFilter } from '../../filters/HttpExceptions.filter';
+import { UsersService } from '../../service/users/users.service';
 
 @Controller('users')
 export class UsersController {

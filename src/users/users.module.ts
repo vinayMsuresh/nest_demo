@@ -5,9 +5,9 @@ import {
   RequestMethod,
 } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { ValidateCustomer } from 'src/middlewares/ValidateAccount.middleware';
-import { ValidateCustomerMiddleware } from 'src/middlewares/validateCustomer.middleware';
-import { User1 } from 'src/typeOrm';
+import { ValidateCustomer } from '../middlewares/ValidateAccount.middleware';
+import { ValidateCustomerMiddleware } from '../middlewares/validateCustomer.middleware';
+import { User1 } from '../typeOrm';
 import { UsersController } from './controller/users/users.controller';
 import { UsersService } from './service/users/users.service';
 

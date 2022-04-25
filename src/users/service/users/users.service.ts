@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { plainToClass } from 'class-transformer';
-import { slideUsers, userTypes } from 'src/types/usertypes';
-import { CreateUserDto } from 'src/users/dtos/ceateUser.dto';
-import { User1 as UserEntity } from 'src/typeOrm/Users';
+import { slideUsers, userTypes } from '../../../types/usertypes';
+import { CreateUserDto } from '../../dtos/ceateUser.dto';
+import { User1 as UserEntity } from '../../../typeOrm/Users';
 import { Repository } from 'typeorm';
-import { encodePassword } from 'src/utils/bcrypt';
+import { encodePassword } from '../../../utils/bcrypt';
 @Injectable()
 export class UsersService {
   constructor(@InjectRepository(UserEntity)
